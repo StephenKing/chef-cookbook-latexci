@@ -1,0 +1,17 @@
+job {
+  name <%= params[:name] %>
+
+  scm {
+    git(<%= params[:repository] %>
+  }
+
+  triggers() {
+    githubPush()
+    useGitHubHooks()
+    permitAll()
+  }
+
+  steps {
+    shell("ls -l")
+  }
+}
